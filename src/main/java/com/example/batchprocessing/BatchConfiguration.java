@@ -13,7 +13,6 @@ import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -25,13 +24,13 @@ import javax.sql.DataSource;
 public class BatchConfiguration {
 
     @Autowired
-    public JobBuilderFactory jobBuilderFactory; //jobの順番を決めるためのクラス
+    public JobBuilderFactory jobBuilderFactory; //jobの順番を決めるためのオブジェクト
 
     @Autowired
-    public StepBuilderFactory stepBuilderFactory; //jobのステップを決定するためのクラス
+    public StepBuilderFactory stepBuilderFactory; //jobのステップを決定するためオブジェクト
 
     @Bean
-    public FlatFileItemReader<Person> reader() {
+    public FlatFileItemReader<Person> reader() { //ファイルの読み込みを行うメソッド
         return new FlatFileItemReaderBuilder<Person>().
                 name("personItemReader").resource(new ClassPathResource("sample-data.csv")).delimited().
                 names(new String[]{"firstName", "lastName"}).
@@ -45,7 +44,7 @@ public class BatchConfiguration {
     }
 
     @Bean
-    public JdbcBatchItemWriter<Person> writer(DataSource dataSource){
+    public JdbcBatchItemWriter<Person> writer(DataSource dataSource){ //DBへ書き込むためのメソッド？
         return new JdbcBatchItemWriterBuilder<Person>()
                 .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
                 .sql("insert into people (first_name, last_name) VALUES (:firstName, :lastName)")
@@ -53,7 +52,7 @@ public class BatchConfiguration {
     }
 
     @Bean
-    public Job importUserJob(Step step1,JobCompletionNotificationListener listner){
+    public Job importUserJob(Step step1,JobCompletionNotificationListener listner){ //jobの作成を行うメソッド
         return jobBuilderFactory.get("importUserJob")
                 .incrementer(new RunIdIncrementer()).listener(listner)
                 .flow(step1)
@@ -62,7 +61,7 @@ public class BatchConfiguration {
     }
 
     @Bean
-    public Step step1(JdbcBatchItemWriter<Person> writer){
+    public Step step1(JdbcBatchItemWriter<Person> writer){ //stepを決めるためのメソッド
         return stepBuilderFactory.get("step1")
                 .<Person, Person> chunk(10)
                 .reader(reader())

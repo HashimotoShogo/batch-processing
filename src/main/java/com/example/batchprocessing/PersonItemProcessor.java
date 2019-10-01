@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 
 //中間処理を行うクラス
-public class PersonItemProcessor implements ItemProcessor<Person,Person> {
+public class PersonItemProcessor implements ItemProcessor<Person,Person> { //入力されたpersonの情報を加工するための情報
 
     private static final Logger log = LoggerFactory.getLogger(PersonItemProcessor.class);
 
