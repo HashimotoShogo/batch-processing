@@ -148,6 +148,11 @@ mysql -u root -p
  Welcome to the MySQL monitor.　 Commands end with ; or \g.
 ```
 
+* docker-composeの停止
+
+```bash
+sudo docker-compose down
+```
 ## 参考にしたページ
 
 * https://mmtomitomimm.blogspot.com/2018/04/docker-mysqldb.html
