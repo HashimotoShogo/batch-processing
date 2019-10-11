@@ -20,25 +20,26 @@ batch-processing
 * docker-composeの起動
 
 ```bash
+
 cd docker-composeがあるディレクトリ
 
 sudo docker-compose up -d  #docker-composeの起動
 
 sudo docker exec -it batch-processing_mysql_1 bash #起動したコンテナに接続
 
-mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp #コンテナ外からコンテナ内のmysqlに接続
-
-
 ```
 
-* コンテナに接続後
+* ターミナルからコンテナ内MYSQLサーバに接続
 
 ```bash
-mysql -u root -p
-#パスワードは環境変数で指定したもの
+
+export MYSQL_ROOT_PASSWORD=root
+
+mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp
 
 #接続に成功すると以下のようなメッセージが表示される
  Welcome to the MySQL monitor.　 Commands end with ; or \g.
+ 
 ```
 
 * docker-composeの停止
