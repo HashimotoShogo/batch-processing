@@ -23,30 +23,46 @@ batch-processing
 
 cd docker-composeがあるディレクトリ
 
-sudo docker-compose up -d  #docker-composeの起動
+export MYSQL_ROOT_PASSWORD=root
 
-sudo docker exec -it batch-processing_mysql_1 bash #起動したコンテナに接続
+sudo -E docker-compose up -d  #docker-composeの起動  dockerグループにユーザを追加していない場合　sudo -E
+
+sudo -E docker exec -it batch-processing_mysql_1 bash #起動したコンテナに接続
 
 ```
 
-* ターミナルからコンテナ内MYSQLサーバに接続
+* dockerのステータス確認
 
 ```bash
 
-export MYSQL_ROOT_PASSWORD=root
+sudo -E docker-compose ps -a
 
-mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp
+```
+
+* ターミナルからコンテナ内のMYSQLサーバに接続
+
+```bash
+
+mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp #コンテナ外からコンテナ内のmysqlに接続
 
 #接続に成功すると以下のようなメッセージが表示される
  Welcome to the MySQL monitor.　 Commands end with ; or \g.
- 
+
 ```
+
 
 * docker-composeの停止
 
 ```bash
-sudo docker-compose down
+sudo -E docker-compose down
+
 ```
+
+
 ## 参考にしたページ
 
 * https://mmtomitomimm.blogspot.com/2018/04/docker-mysqldb.html
+
+
+* https://forums.docker.com/t/docker-compose-not-seeing-environment-variables-on-the-host/11837/7
+ 
