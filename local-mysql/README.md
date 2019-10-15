@@ -1,5 +1,5 @@
 # docker-composeによるローカルDB作成方法
-ローカルDBを作成する手段の１つ
+ローカル環境テスト時に利用する、ローカル環境DBの作成をDockerに任せる
 
 ## docker-composeを実行するために必要なファイルの構成
 
@@ -7,8 +7,6 @@
 batch-processing
  |-docker-compose.yml
  |-local-mysql
-    　　|-Dockerfile 
-        |-my.cnf
         |-db
         　 |-init.sql
 
@@ -25,7 +23,7 @@ cd docker-composeがあるディレクトリ
 
 export MYSQL_ROOT_PASSWORD=root
 
-sudo -E docker-compose up -d  #docker-composeの起動  dockerグループにユーザを追加していない場合　sudo -E
+sudo -E docker-compose up -d  #docker-composeの起動  橋本環境では　"sudo -E"　で　環境変数を引き継ぐ必要あり
 
 sudo -E docker exec -it batch-processing_mysql_1 bash #起動したコンテナに接続
 
@@ -54,6 +52,7 @@ mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp #コンテナ外からコ�
 * docker-composeの停止
 
 ```bash
+
 sudo -E docker-compose down
 
 ```
@@ -64,5 +63,7 @@ sudo -E docker-compose down
 * https://mmtomitomimm.blogspot.com/2018/04/docker-mysqldb.html
 
 
-* https://forums.docker.com/t/docker-compose-not-seeing-environment-variables-on-the-host/11837/7
+* https://forums.docker.com/t/docker-compose-not-seeing-environment-variables-on-the-host/11837/7 
+
+* https://kawairi.jp/weblog/vita/2016040820298 (sudo 時の環境変数について)
  
