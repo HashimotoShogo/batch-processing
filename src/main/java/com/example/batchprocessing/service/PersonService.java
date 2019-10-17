@@ -63,7 +63,7 @@ public class PersonService {
             str.append(person.getFirstName() + "," + person.getLastName() + "," + person.getAddress());
 
             File file = new File("test.csv");
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
 
                 bw.write(str.toString());
                 bw.newLine();
