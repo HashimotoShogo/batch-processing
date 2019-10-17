@@ -9,6 +9,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,9 @@ public class PersonService {
         log.info("Start extract person info");
 
         List<Person> list = takePersonInfo();
-
+        Path path = Paths.get("8月運用報酬額計算メモ");
+        String str = path.toAbsolutePath().toString();
+        System.out.println("pass : " + str);
 
         log.info("Finished extracting person info ");
         log.info("personの情報を表示します。");
@@ -36,7 +40,7 @@ public class PersonService {
 
 //        log.info("取得した情報の出力を始めます。");
 //
-//        //writeCSVtoLocal(list);
+        writeCSVtoLocal(list);
 //
 //        log.info("CSV出力が終了しました。");
 
@@ -62,10 +66,11 @@ public class PersonService {
 
             str.append(person.getFirstName() + "," + person.getLastName() + "," + person.getAddress());
 
-            File file = new File("/Users/デスクトップ/test.csv");
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            File file = new File("test.csv");
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
 
                 bw.write(str.toString());
+                bw.newLine();
 
             } catch (IOException e) {
                 e.printStackTrace();
