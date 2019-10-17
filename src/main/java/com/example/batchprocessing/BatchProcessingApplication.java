@@ -1,16 +1,25 @@
 package com.example.batchprocessing;
 
-import com.example.batchprocessing.Service.PersonService;
+import com.example.batchprocessing.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ImportResource("classpath:application.properties.xml")
-public class BatchProcessingApplication {
+//@ImportResource("classpath:application.properties.xml")
+public class BatchProcessingApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PersonService.class, args);
-	}
+    @Autowired
+    PersonService personService;
 
+    public static void main(String[] args) {
+        SpringApplication.run(BatchProcessingApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+
+        personService.run("hogehoge");
+    }
 }
