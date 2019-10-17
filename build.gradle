@@ -20,7 +20,7 @@ dependencies {
 	testCompile 'junit:junit:4.+'
 	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
 
-	//jooq関連のjarを追加
+	//jooq関連
 	compile group: 'org.jooq', name: 'jooq', version: '3.11.2'
 	compile group: 'org.jooq', name: 'jooq-parent', version: '3.11.2'/*, ext: 'pom'*/
 	compile group: 'org.jooq', name: 'jooq-meta', version: '3.11.2'
@@ -41,7 +41,7 @@ jooq {
 	edition = 'OSS'
 	tables(sourceSets.main) {
 		jdbc {
-			//データベースドライバの完全修飾クラス名
+			//データベースドライバ
 			driver = 'com.mysql.jdbc.Driver'
 			//SQLに接続するためのURL
 			url = 'jdbc:mysql://127.0.0.1:3306/human?serverTimezone=JST'
@@ -53,7 +53,7 @@ jooq {
 		generator {
 			name = 'org.jooq.codegen.DefaultGenerator'
 			database {
-				//対象とするデータベースを表すクラス名(後述)
+				//対象とするデータベースを表すクラス名
 				name = 'org.jooq.meta.mysql.MySQLDatabase'
 				inputSchema = ''
 				includes = '.*'

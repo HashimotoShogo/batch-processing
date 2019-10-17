@@ -1,9 +1,8 @@
-package com.example.batchprocessing.Service;
+package com.example.batchprocessing.service;
 
-import com.example.batchprocessing.Repository.PersonRepository;
 import com.example.batchprocessing.person.Person;
+import com.example.batchprocessing.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
@@ -16,12 +15,12 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @Service
-public class PersonService implements CommandLineRunner {
+public class PersonService {
 
-    //@Autowired
-    private PersonRepository personRepository=new PersonRepository();
+    @Autowired
+    private PersonRepository personRepository;
 
-    private static final Logger log=Logger.getLogger(PersonService.class.getName());
+    private static final Logger log = Logger.getLogger(PersonService.class.getName());
 
 
     public void run(String... args) {
@@ -37,7 +36,7 @@ public class PersonService implements CommandLineRunner {
 
         log.info("取得した情報の出力を始めます。");
 
-        writeCSVtoLocal(list);
+        //writeCSVtoLocal(list);
 
         log.info("CSV出力が終了しました。");
 
@@ -56,19 +55,19 @@ public class PersonService implements CommandLineRunner {
     }
 
 
-    public void writeCSVtoLocal(List<Person> personList){
+    public void writeCSVtoLocal(List<Person> personList) {
 
-        for(Person person:personList){
+        for (Person person : personList) {
             StringBuilder str = new StringBuilder();
 
-            str.append(person.getFirstName()+","+person.getLastName()+","+person.getAddress());
+            str.append(person.getFirstName() + "," + person.getLastName() + "," + person.getAddress());
 
-            File file = new File("USER/デスクトップ/test.csv");
-            try(BufferedWriter bw = new BufferedWriter(new FileWriter(file))){
+            File file = new File("/Users/デスクトップ/test.csv");
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
 
                 bw.write(str.toString());
 
-            }catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 

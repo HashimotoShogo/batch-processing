@@ -5,20 +5,15 @@ public class Person {
     private String lastName;
     private String firstName;
     private Long id;
+    private String address;
 
-    public Person() {
-    }
-
-    public Person(Long id, String lastName, String firstName) {
+    public Person(Long id, String firstName, String lastName,String address) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
+        this.address=address;
     }
 
-    public Person(String firstName,String lastName){
-        this.firstName=firstName;
-        this.lastName=lastName;
-    }
 
     public String getLastName() {
         return lastName;
@@ -38,8 +33,16 @@ public class Person {
 
     public void setId(Long id){this.id = id; }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "Person{" + "lastName='" + lastName + '\'' + ", firstName='" + firstName + '\'' + '}';
+        return "Person{" + "lastName='" + lastName + '\'' + ", firstName='" + firstName + '\'' + ", address="+ address +'}';
     }
 }
