@@ -71,8 +71,6 @@ public class PersonService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-
     }
 }

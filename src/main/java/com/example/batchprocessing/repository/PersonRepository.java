@@ -43,7 +43,6 @@ public class PersonRepository {
                     .on(PEOPLE.PERSON_ID.eq(ADDRESS1.PEOPLE_ID))
                     .fetch();
 
-
             result.forEach(record -> list.add(
                     new Person(
                             record.get(PEOPLE.PERSON_ID),
@@ -52,10 +51,7 @@ public class PersonRepository {
                             record.getValue(ADDRESS1.ADDRESS1_)
                     ))
             );
-
             return list;
         }
-
-
     }
 }
