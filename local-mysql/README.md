@@ -2,17 +2,14 @@
 
 Docker-composeを利用し、開発環境のテスト時に利用するローカルDBの作成を行う。
 
-
 ## docker-composeを実行するために必要なファイルの構成
 
 ```bash
-
 batch-processing
  |-docker-compose.yml
  |-local-mysql
-        |-db
+        |-initdb
         　 |-init.sql
-
 ```
 
 * docker-compose:DB立ち上げるための設定を記載
@@ -30,7 +27,6 @@ docker-composeの実行後、端末・プログラムからコンテナ内のDB�
 
 
 ```bash
-
 cd docker-composeがあるディレクトリ
 
 export MYSQL_ROOT_PASSWORD=root
@@ -38,35 +34,28 @@ export MYSQL_ROOT_PASSWORD=root
 sudo -E docker-compose up -d  #docker-composeの起動  橋本環境では "sudo -E" で環境変数を引き継ぐ必要あり
 
 sudo -E docker exec -it batch-processing_mysql_1 bash #起動したコンテナに接続
-
 ```
 
 * dockerのステータス確認
 
 ```bash
-
 sudo -E docker-compose ps -a #Statusの項目が up の場合稼働中 Exit の場合停止中
-
 ```
 
 * ターミナルからコンテナ内のMYSQLサーバに接続
 
 ```bash
-
 mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp #コンテナ外からコンテナ内のmysqlに接続
 
 #接続に成功すると以下のようなメッセージが表示される
  Welcome to the MySQL monitor.　 Commands end with ; or \g.
-
 ```
 
 
 * docker-composeの停止
 
 ```bash
-
 sudo -E docker-compose down
-
 ```
 
 
