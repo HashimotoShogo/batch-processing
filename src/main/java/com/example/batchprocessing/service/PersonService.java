@@ -48,7 +48,9 @@ public class PersonService {
             list = personRepository.getAllPersonInfo();
 
         } catch (SQLException e) {
+
             e.printStackTrace();
+
         }
         return list;
     }
@@ -69,7 +71,9 @@ public class PersonService {
                 bw.newLine();
 
             } catch (IOException e) {
+
                 e.printStackTrace();
+
             }
         }
     }
