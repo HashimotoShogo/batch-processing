@@ -34,11 +34,11 @@ public class PersonService {
         log.info("personの情報を表示します。");
         list.forEach(Person -> System.out.println(Person));
 
-        log.info("取得した情報の出力を始めます。");
-
-        //writeCSVtoLocal(list);
-
-        log.info("CSV出力が終了しました。");
+//        log.info("取得した情報の出力を始めます。");
+//
+//        //writeCSVtoLocal(list);
+//
+//        log.info("CSV出力が終了しました。");
 
     }
 

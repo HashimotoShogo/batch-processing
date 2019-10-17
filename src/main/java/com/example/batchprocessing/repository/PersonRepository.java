@@ -23,16 +23,10 @@ import static jooq.human.tables.People.PEOPLE;
 @Transactional(readOnly = true)
 public class PersonRepository {
 
+    String url = "jdbc:mysql://127.0.0.1:3306/human"; //動作確認のためにここに記入
 
-//    @Autowired
-//    SettingMysql settingMysql;
-
-    String url = "jdbc:mysql://127.0.0.1:3306/human";
-
-    //@Value("${spring.datasource.username}")
     String username = "root";
 
-    //@Value("${spring.datasource.password}")
     String password = "root";
 
     public List<Person> getAllPersonInfo() throws SQLException { //SQLメモ書き　select first_name,last_name,address1 from people inner join address1 on people.person_id = address1.people_id;

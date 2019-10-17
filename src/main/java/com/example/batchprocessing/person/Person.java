@@ -7,13 +7,12 @@ public class Person {
     private Long id;
     private String address;
 
-    public Person(Long id, String firstName, String lastName,String address) {
+    public Person(Long id, String firstName, String lastName, String address) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
-        this.address=address;
+        this.address = address;
     }
-
 
     public String getLastName() {
         return lastName;
@@ -31,7 +30,9 @@ public class Person {
         this.firstName = firstName;
     }
 
-    public void setId(Long id){this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getAddress() {
         return address;
@@ -43,6 +44,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "lastName='" + lastName + '\'' + ", firstName='" + firstName + '\'' + ", address="+ address +'}';
+        return "Person{" + "lastName='" + lastName + '\'' + ", firstName='" + firstName + '\'' + ", address=" + address + '}';
     }
 }
