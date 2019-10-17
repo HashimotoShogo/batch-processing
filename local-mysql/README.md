@@ -31,11 +31,10 @@ batch-processing
         |-db
         　 |-init.sql
 
-
 ```
 
-* docker-compose :DB立ち上げるための設定を記載
-* init.sql:DBを立ち上げた際に挿入するSQLを記載
+* docker-compose:DB立ち上げるための設定を記載 
+* init.sql:DBを立ち上げた際に挿入するSQLを記載 
 * デイレクトリ名は任意
 
 
