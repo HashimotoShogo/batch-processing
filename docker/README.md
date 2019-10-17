@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ローカル環境テスト時に利用する、ローカル環境DBの作成をDockerに任せる
 =======
 テストで利用するローカルDBの作成をDocker-composeで作成する。
@@ -41,37 +42,55 @@ Docker-composeを利用し、開発環境のテスト時に利用するローカ
 ## docker-composeを実行するために必要なファイルの構成
 =======
 >>>>>>> 行間隔の調整を行いました。##の上は2行　*の上は1行にしています。
+=======
+docker-composeを利用し、開発環境のテスト時に利用するローカルDBの作成を行う。
 
-## docker-composeを実行するために必要なファイルの構成
+本READMEはUbuntu環境のもの
+>>>>>>> ディレクトリの違うものをコミットしてしまったので再度アップロード
+
+## ローカルDBを立ち上げるまでに必要なこと
+
+* docker のインストール
+* docker-compose のインストール
+* docker-compose で利用する DB のイメージをダウンロード
+* docker-compose に DB を立ち上げるための設定を記載
+* init.sql に DB を立ち上げた際に予め挿入する SQL を記載
+
+### docker 関連のインストール
 ```bash
-batch-processing
- |-docker-compose.yml
- |-initdb
-　　　|-init.sql
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-* docker-compose:DB立ち上げるための設定を記載
-* init.sql:DBを立ち上げた際に予め挿入するSQLを記載
-* デイレクトリ名は任意
+### docker-compose のインストール
+```bash
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
 
+### イメージのダウンロード
+```bash
+#mysql 5.7 のイメージダウンロード例
+$ sudo docker pull mysql:5.7
+```
 
 ## docker-composeの実行
 
 docker-composeの実行後、端末・プログラムからコンテナ内のDBに接続し情報を得ることが出来る。
 
-* docker-composeの起動
 ```bash
-cd docker-composeがあるディレクトリ
+cd docker/
 
-export MYSQL_ROOT_PASSWORD=root
+$ export MYSQL_ROOT_PASSWORD=root
 
-sudo -E docker-compose up -d  #docker-composeの起動  橋本環境では "sudo -E" で環境変数を引き継ぐ必要あり dockerグループにユーザーを追加することでsudo回避可能
+#docker-composeの起動  橋本環境では sudo -E で export した環境変数を引き継ぐ必要あり 
+$ sudo -E docker-compose up -d 
 
-sudo -E docker exec -it batch-processing_mysql_1 bash #起動したコンテナに接続
+#起動したコンテナに接続
+$ sudo -E docker exec -it batch-processing_mysql_1 bash
 ```
 
-* dockerのステータス確認
+### dockerのステータス確認
 ```bash
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 sudo -E docker-compose ps -a
@@ -84,26 +103,43 @@ sudo -E docker-compose ps -a #Statusの項目が up の場合稼働中 Exit の�
 sudo -E docker-compose ps -a #Statusの項目が up の場合稼働中 Exit の場合停止中
 >>>>>>> bash部分の改行を削除しました。
 ```
+=======
+#Statusの項目が up の場合稼働中 Exit の場合停止中
+$ sudo -E docker-compose ps -a 
+```     
+>>>>>>> ディレクトリの違うものをコミットしてしまったので再度アップロード
 
-* ターミナルからコンテナ内のMYSQLサーバに接続
+### ターミナルからコンテナ内のMYSQLサーバに接続
 ```bash
-mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp #コンテナ外からコンテナ内のmysqlに接続
+#コンテナ外からコンテナ内のmysqlに接続
+$ mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp 
 
 #接続に成功すると以下のようなメッセージが表示される
- Welcome to the MySQL monitor.　 Commands end with ; or \g.
+Welcome to the MySQL monitor.　 Commands end with ; or \g.
 ```
 
-* docker-composeの停止
+### docker-composeの停止
 ```bash
-sudo -E docker-compose down
+$ sudo -E docker-compose down
 ```
 
+### sudo について
+dockerグループにユーザーを追加することで sudo の回避可能
 
 ## 参考にしたページ
 
+### docker のインストール
+* https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+### docker-compose のインストール
+* https://docs.docker.com/compose/install/
+
+### Dockerfile を利用した docker-compose 起動までの手順
 * https://mmtomitomimm.blogspot.com/2018/04/docker-mysqldb.html
 
+### sudo -E について
 * https://forums.docker.com/t/docker-compose-not-seeing-environment-variables-on-the-host/11837/7 
 
-* https://kawairi.jp/weblog/vita/2016040820298 (sudo 時の環境変数について)
+### sudo 時の環境変数について
+* https://kawairi.jp/weblog/vita/2016040820298
  
