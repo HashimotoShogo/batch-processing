@@ -24,28 +24,27 @@ public class PersonService {
 
 
     public void run(String... args) {
-        log.info("DBから情報を取り出します。");
+
         log.info("Start extract person info");
-
         List<Person> list = takePersonInfo();
-
-
         log.info("Finished extracting person info ");
+
         log.info("personの情報を表示します。");
         list.forEach(Person -> System.out.println(Person));
 
         log.info("取得した情報の出力を始めます。");
-
         writeCSVtoLocal(list);
-
         log.info("CSV出力が終了しました。");
 
     }
 
 
     public List<Person> takePersonInfo() {
+
         List<Person> list = new ArrayList<>();
+
         try {
+
             list = personRepository.getAllPersonInfo();
 
         } catch (SQLException e) {
@@ -58,6 +57,7 @@ public class PersonService {
     public void writeCSVtoLocal(List<Person> personList) {
 
         for (Person person : personList) {
+
             StringBuilder str = new StringBuilder();
 
             str.append(person.getFirstName() + "," + person.getLastName() + "," + person.getAddress());
@@ -73,4 +73,5 @@ public class PersonService {
             }
         }
     }
+
 }
