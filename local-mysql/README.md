@@ -66,7 +66,7 @@ cd docker-composeがあるディレクトリ
 
 export MYSQL_ROOT_PASSWORD=root
 
-sudo -E docker-compose up -d  #docker-composeの起動  橋本環境では "sudo -E" で環境変数を引き継ぐ必要あり
+sudo -E docker-compose up -d  #docker-composeの起動  橋本環境では "sudo -E" で環境変数を引き継ぐ必要あり dockerグループにユーザーを追加することでsudo回避可能
 
 sudo -E docker exec -it batch-processing_mysql_1 bash #起動したコンテナに接続
 ```
