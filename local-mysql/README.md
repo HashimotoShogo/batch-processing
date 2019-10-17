@@ -26,6 +26,7 @@ Docker-composeを利用し、開発環境のテスト時に利用するローカ
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ここでは橋本が作成した、人のフルネーム・住所を取得するサンプルバッチの接続先としてdocker-composeを利用
 >>>>>>> 使用用途を追加しました。
 =======
@@ -34,16 +35,16 @@ Docker-composeを利用し、開発環境のテスト時に利用するローカ
 =======
 >>>>>>> 少し修正を行いました。
 
+=======
+>>>>>>> bash部分の改行を削除しました。
 ## docker-composeを実行するために必要なファイルの構成
 
 ```bash
-
 batch-processing
  |-docker-compose.yml
  |-local-mysql
-        |-db
+        |-initdb
         　 |-init.sql
-
 ```
 
 * docker-compose:DB立ち上げるための設定を記載
@@ -74,12 +75,16 @@ sudo -E docker exec -it batch-processing_mysql_1 bash #起動したコンテナ�
 
 ```bash
 <<<<<<< HEAD
+<<<<<<< HEAD
 sudo -E docker-compose ps -a
 =======
 
 sudo -E docker-compose ps -a #Statusの項目が up の場合稼働中 Exit の場合停止中
 
 >>>>>>> 文章の追加といくつかの修正を行いました。
+=======
+sudo -E docker-compose ps -a #Statusの項目が up の場合稼働中 Exit の場合停止中
+>>>>>>> bash部分の改行を削除しました。
 ```
 
 * ターミナルからコンテナ内のMYSQLサーバに接続
