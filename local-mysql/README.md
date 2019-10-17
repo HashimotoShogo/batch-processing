@@ -1,9 +1,10 @@
 # docker-composeによるローカルDB作成方法
 
-テストで利用するローカルDBをDocker-composeで作成する。
+docker-composeを利用してローカル環境のDBを作成する。
+
+作成されたDBを開発後のテストで利用する。
 
 init.sqlに書かれている内容を変更することでdocker-compose立ち上げ時に挿入されるデータを編集することが出来る。
-
 
 ## docker-composeを実行するために必要なファイルの構成
 
@@ -15,7 +16,13 @@ batch-processing
         |-db
         　 |-init.sql
 
+
 ```
+
+* docker-compose :DB立ち上げるための設定を記載
+* init.sql:DBを立ち上げた際に挿入するSQLを記載
+* デイレクトリ名は任意
+
 
 ## docker-composeの実行
 
