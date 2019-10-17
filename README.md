@@ -27,6 +27,7 @@ Docker-composeを利用し、開発環境のテスト時に利用するローカ
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ここでは橋本が作成した、人のフルネーム・住所を取得するサンプルバッチの接続先としてdocker-composeを利用
 >>>>>>> 使用用途を追加しました。
 =======
@@ -38,13 +39,15 @@ Docker-composeを利用し、開発環境のテスト時に利用するローカ
 =======
 >>>>>>> bash部分の改行を削除しました。
 ## docker-composeを実行するために必要なファイルの構成
+=======
+>>>>>>> 行間隔の調整を行いました。##の上は2行　*の上は1行にしています。
 
+## docker-composeを実行するために必要なファイルの構成
 ```bash
 batch-processing
  |-docker-compose.yml
- |-local-mysql
-        |-initdb
-        　 |-init.sql
+ |-initdb
+　　　|-init.sql
 ```
 
 * docker-compose:DB立ち上げるための設定を記載
@@ -52,15 +55,11 @@ batch-processing
 * デイレクトリ名は任意
 
 
-
 ## docker-composeの実行
 
 docker-composeの実行後、端末・プログラムからコンテナ内のDBに接続し情報を得ることが出来る。
 
-
 * docker-composeの起動
-
-
 ```bash
 cd docker-composeがあるディレクトリ
 
@@ -72,7 +71,6 @@ sudo -E docker exec -it batch-processing_mysql_1 bash #起動したコンテナ�
 ```
 
 * dockerのステータス確認
-
 ```bash
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -88,7 +86,6 @@ sudo -E docker-compose ps -a #Statusの項目が up の場合稼働中 Exit の�
 ```
 
 * ターミナルからコンテナ内のMYSQLサーバに接続
-
 ```bash
 mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp #コンテナ外からコンテナ内のmysqlに接続
 
@@ -96,9 +93,7 @@ mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp #コンテナ外からコ�
  Welcome to the MySQL monitor.　 Commands end with ; or \g.
 ```
 
-
 * docker-composeの停止
-
 ```bash
 sudo -E docker-compose down
 ```
@@ -109,7 +104,6 @@ sudo -E docker-compose down
 * https://mmtomitomimm.blogspot.com/2018/04/docker-mysqldb.html
 
 * https://forums.docker.com/t/docker-compose-not-seeing-environment-variables-on-the-host/11837/7 
-
 
 * https://kawairi.jp/weblog/vita/2016040820298 (sudo 時の環境変数について)
  
