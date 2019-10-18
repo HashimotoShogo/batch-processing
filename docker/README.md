@@ -49,7 +49,7 @@ $ sudo -E docker exec -it docker_mysql_1 bash
 ### dockerのステータス確認
 ```bash
 #Statusの項目が up の場合稼働中 Exit の場合停止中
-$ sudo docker-compose ps -a 
+$ sudo docker-compose ps
 ```     
 
 ### ターミナルからコンテナ内のMYSQLサーバに接続
