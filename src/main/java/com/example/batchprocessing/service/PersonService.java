@@ -29,13 +29,12 @@ public class PersonService {
         List<Person> list = takePersonInfo();
         log.info("Finished extracting person info ");
 
-        log.info("personの情報を表示します。");
+        log.info("display person info");
         list.forEach(Person -> System.out.println(Person));
 
-        log.info("取得した情報の出力を始めます。");
+        log.info("start output person info");
         writeCSVtoLocal(list);
-        log.info("CSV出力が終了しました。");
-
+        log.info("finish output person info");
     }
 
 
