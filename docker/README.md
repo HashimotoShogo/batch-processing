@@ -68,11 +68,6 @@ $ sudo curl -L \
 -o /usr/local/bin/docker-compose
 ```
 
-### イメージのダウンロード
-```bash
-#mysql 5.7.27 のイメージダウンロード例
-$ sudo docker pull mysql:5.7.27
-```
 
 ## docker-composeの実行
 
