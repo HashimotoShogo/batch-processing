@@ -126,7 +126,9 @@ $ sudo docker-compose down
 ```
 
 ### sudo について
-dockerグループにユーザーを追加することで sudo の回避可能
+* dockerグループにユーザーを追加することで sudo の回避可能
+
+https://qiita.com/tifa2chan/items/9dc28a56efcfb50c7fbe
 
 ## 参考にしたページ
 
