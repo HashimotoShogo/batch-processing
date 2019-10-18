@@ -107,7 +107,7 @@ sudo -E docker-compose ps -a #Statusの項目が up の場合稼働中 Exit の�
 ```
 =======
 #Statusの項目が up の場合稼働中 Exit の場合停止中
-$ sudo -E docker-compose ps -a 
+$ sudo docker-compose ps -a 
 ```     
 >>>>>>> ディレクトリの違うものをコミットしてしまったので再度アップロード
 
@@ -122,7 +122,7 @@ Welcome to the MySQL monitor.　 Commands end with ; or \g.
 
 ### docker-composeの停止
 ```bash
-$ sudo -E docker-compose down
+$ sudo docker-compose down
 ```
 
 ### sudo について
