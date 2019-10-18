@@ -43,7 +43,7 @@ $ export MYSQL_ROOT_PASSWORD=root
 $ sudo -E docker-compose up -d 
 
 #起動したコンテナに接続
-$ sudo -E docker exec -it batch-processing_mysql_1 bash
+$ sudo -E docker exec -it docker_mysql_1 bash
 ```
 
 ### dockerのステータス確認
