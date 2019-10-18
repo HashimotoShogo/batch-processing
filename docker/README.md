@@ -53,7 +53,7 @@ $ sudo -E docker-compose ps -a
 ### ターミナルからコンテナ内のMYSQLサーバに接続
 ```bash
 #コンテナ外からコンテナ内のmysqlに接続
-$ mysql -h 127.0.0.1 -u root -p  -P 3306 --protocol=tcp 
+$ mysql -h 127.0.0.1 -u root -p  -P 3306 
 
 #接続に成功すると以下のようなメッセージが表示される
 Welcome to the MySQL monitor.　 Commands end with ; or \g.
