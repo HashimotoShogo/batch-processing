@@ -73,18 +73,23 @@ dockerグループにユーザーを追加することで sudo の回避可能
 
 ## 参考にしたページ
 
-### docker のインストール
-https://docs.docker.com/install/linux/docker-ce/ubuntu/
+docker のインストール
 
-### docker-compose のインストール
-https://docs.docker.com/compose/install/
+* https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-### Dockerfile を利用した docker-compose 起動までの手順
-https://mmtomitomimm.blogspot.com/2018/04/docker-mysqldb.html
+docker-compose のインストール
 
-### sudo -E について
-https://forums.docker.com/t/docker-compose-not-seeing-environment-variables-on-the-host/11837/7 
+* https://docs.docker.com/compose/install/
 
-### sudo 時の環境変数について
-https://kawairi.jp/weblog/vita/2016040820298
+Dockerfile を利用した docker-compose 起動までの手順
+
+* https://mmtomitomimm.blogspot.com/2018/04/docker-mysqldb.html
+
+sudo -E について
+
+* https://forums.docker.com/t/docker-compose-not-seeing-environment-variables-on-the-host/11837/7 
+
+sudo 時の環境変数について
+
+* https://kawairi.jp/weblog/vita/2016040820298
  
