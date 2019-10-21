@@ -4,7 +4,7 @@ docker-composeを利用し、開発環境のテスト時に利用するローカ
 
 本READMEはUbuntu環境のもの
 
-## ローカルDBを立ち上げるまでに必要なこと
+## 事前準備
 
 * docker のインストール
 * docker-compose のインストール
