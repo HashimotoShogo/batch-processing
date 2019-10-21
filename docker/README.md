@@ -62,7 +62,7 @@ $ sudo curl -L \
 -o /usr/local/bin/docker-compose
 ```
 
-* docker-compose に設定を記載
+* docker-compose.yml に設定を記載
 
 例：https://github.com/HashimotoShogo/batch-processing/blob/docker-compose/docker/docker-compose.yml
 
