@@ -83,10 +83,13 @@ $ export MYSQL_ROOT_PASSWORD=root
 
 #docker-composeの起動  橋本環境では sudo -E で export した環境変数を引き継ぐ必要あり 
 $ sudo -E docker-compose up -d 
+```
 
-#起動したコンテナに接続
+* 起動したコンテナに接続
+```bash
 $ sudo -E docker exec -it docker_mysql_1 bash
 ```
+
 
 * dockerのステータス確認
 ```bash
