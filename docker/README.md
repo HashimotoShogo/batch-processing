@@ -50,10 +50,6 @@ docker-composeを利用し、開発環境のテスト時に利用するローカ
 
 ## 事前準備
 
-
-* docker-compose に DB を立ち上げるための設定を記載
-* init.sql に DB を立ち上げた際に予め挿入する SQL を記載
-
 * docker engine のインストール
 ```bash
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io
