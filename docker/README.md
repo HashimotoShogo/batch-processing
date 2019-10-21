@@ -6,9 +6,7 @@ docker-composeを利用し、開発環境のテスト時に利用するローカ
 
 ## 事前準備
 
-* docker のインストール
-* docker-compose のインストール
-* docker-compose で利用する DB のイメージをダウンロード
+
 * docker-compose に DB を立ち上げるための設定を記載
 * init.sql に DB を立ち上げた際に予め挿入する SQL を記載
 
@@ -23,6 +21,12 @@ $ sudo curl -L \
 "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" \ 
 -o /usr/local/bin/docker-compose
 ```
+
+* docker-compose に設定を記載
+
+
+* init.sql にSQLを記載
+
 
 
 ## docker-composeの実行
