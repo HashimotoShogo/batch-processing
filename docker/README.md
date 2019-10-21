@@ -30,6 +30,8 @@ $ sudo curl -L \
 
 docker-composeの実行後、端末・プログラムからコンテナ内のDBに接続し情報を得ることが出来る。
 
+* 環境変数の設定・docker-composeの起動
+
 ```bash
 cd docker/
 
