@@ -64,10 +64,11 @@ $ sudo curl -L \
 
 * docker-compose に設定を記載
 
+例：https://github.com/HashimotoShogo/batch-processing/blob/docker-compose/docker/docker-compose.yml
 
 * init.sql にSQLを記載
 
-
+例：https://github.com/HashimotoShogo/batch-processing/blob/docker-compose/docker/initDB/init.sql
 
 ## docker-composeの実行
 
