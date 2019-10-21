@@ -42,13 +42,13 @@ $ sudo -E docker-compose up -d
 $ sudo -E docker exec -it docker_mysql_1 bash
 ```
 
-### dockerのステータス確認
+* dockerのステータス確認
 ```bash
 #Statusの項目が up の場合稼働中 Exit の場合停止中
 $ sudo docker-compose ps
 ```     
 
-### ターミナルからコンテナ内のMYSQLサーバに接続
+* ターミナルからコンテナ内のMYSQLサーバに接続
 ```bash
 #コンテナ外からコンテナ内のmysqlに接続
 $ mysql -h 127.0.0.1 -u root -p  -P 3306 
@@ -57,12 +57,12 @@ $ mysql -h 127.0.0.1 -u root -p  -P 3306
 Welcome to the MySQL monitor.　 Commands end with ; or \g.
 ```
 
-### docker-composeの停止
+* docker-composeの停止
 ```bash
 $ sudo docker-compose down
 ```
 
-### sudo について
+* sudo について
 * dockerグループにユーザーを追加することで sudo の回避可能
 
 https://qiita.com/tifa2chan/items/9dc28a56efcfb50c7fbe
