@@ -25,9 +25,22 @@ public class PersonService {
 
     public void run(String... args) {
 
+        personRepository.showSetting();
+
         log.info("Start extract person info");
+        List<Integer> ids = personRepository.takePersonIds();
         List<Person> list = takePersonInfo();
         log.info("Finished extracting person info ");
+
+        log.info("Start display Address");
+        List<String> address = personRepository.takeAddress(ids);
+        address.forEach(a -> System.out.println("address:" + a));
+        log.info("Finish display Address");
+
+        log.info("start display Ids");
+        System.out.println("-----------------------show idsList's size ! size :" + ids.size() + "-----------------------");
+        ids.forEach(i -> System.out.println(i));
+        log.info("finish display Ids");
 
         log.info("display person info");
         list.forEach(Person -> System.out.println(Person));
