@@ -29,6 +29,7 @@ dependencies {
 	compile group: 'org.jooq', name: 'jooq-codegen-maven', version: '3.11.2'
 	compileOnly "org.springframework.boot:spring-boot-configuration-processor"
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+	compile 'com.google.guava:guava:28.1-jre'
 }
 
 dependencies{
