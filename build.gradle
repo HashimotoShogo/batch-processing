@@ -2,7 +2,6 @@ plugins {
 	id 'org.springframework.boot' version '2.1.8.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
-	id 'nu.studer.jooq' version '3.0.2' //jooqでコードを生成するためのプラグイン
 }
 
 group = 'com.example'
@@ -15,57 +14,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	runtimeOnly 'org.hsqldb:hsqldb'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.batch:spring-batch-test'
-	testCompile 'junit:junit:4.+'
-	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
-
-	//jooq関連
-	compile group: 'org.jooq', name: 'jooq', version: '3.11.2'
-	compile group: 'org.jooq', name: 'jooq-parent', version: '3.11.2'/*, ext: 'pom'*/
-	compile group: 'org.jooq', name: 'jooq-meta', version: '3.11.2'
-	compile group: 'org.jooq', name: 'jooq-meta-extensions', version: '3.11.2'
-	compile group: 'org.jooq', name: 'jooq-codegen', version: '3.11.2'
-	compile group: 'org.jooq', name: 'jooq-codegen-maven', version: '3.11.2'
-	compileOnly "org.springframework.boot:spring-boot-configuration-processor"
-	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-	compile 'com.google.guava:guava:28.1-jre'
-}
-
-dependencies{
-	jooqRuntime group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
-}
-
-jooq {
-	//jooqのバージョンを指定
-	version = '3.11.2'
-	edition = 'OSS'
-	tables(sourceSets.main) {
-		jdbc {
-			//データベースドライバ
-			driver = 'com.mysql.jdbc.Driver'
-			//SQLに接続するためのURL
-			url = 'jdbc:mysql://127.0.0.1:3306/human?serverTimezone=JST'
-			//データベースにログインするためのユーザ名
-			user = 'root'
-			//データベースにログインするためのパスワード
-			password = 'root'
-		}
-		generator {
-			name = 'org.jooq.codegen.DefaultGenerator'
-			database {
-				//対象とするデータベースを表すクラス名
-				name = 'org.jooq.meta.mysql.MySQLDatabase'
-				inputSchema = ''
-				includes = '.*'
-				excludes = ''
-			}
-			target {
-				//生成されるコードのパッケージ名
-				packageName = 'jooq'
-				//生成されるコードを配置するディレクトリ
-				directory = 'src/main/java'
-			}
-		}
-	}
 }

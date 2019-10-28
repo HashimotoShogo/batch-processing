@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<bean id="jobLauncherTestUtils" class="org.springframework.batch.test.JobLauncherTestUtils" >
-    <property name="job" ref="custom.entities"/>
-    <property name="jobRepository" ref="jobRepository"/>
-    <property name="jobLauncher" ref="jobLauncher"/>
-</bean>
