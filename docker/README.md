@@ -20,11 +20,9 @@ $ sudo curl -L \
 
 * docker-compose.yml に設定を記載
 
-例：https://github.com/HashimotoShogo/batch-processing/blob/docker-compose/docker/docker-compose.yml
 
 * init.sql にSQLを記載
 
-例：https://github.com/HashimotoShogo/batch-processing/blob/docker-compose/docker/initDB/init.sql
 
 ## docker-composeの実行
 
@@ -37,20 +35,20 @@ cd docker/
 
 $ export MYSQL_ROOT_PASSWORD=root
 
-#docker-composeの起動  橋本環境では sudo -E で export した環境変数を引き継ぐ必要あり 
-$ sudo -E docker-compose up -d 
+#docker-composeの起動  sudo 権限が必要な場合 E オプションで export した環境変数を引き継ぐ必要あり 
+$ docker-compose up -d 
 ```
 
 * 起動したコンテナに接続
 ```bash
-$ sudo -E docker exec -it docker_mysql_1 bash
+$  docker exec -it docker_mysql_1 bash
 ```
 
 
 * dockerのステータス確認
 ```bash
 #Statusの項目が up の場合稼働中 Exit の場合停止中
-$ sudo docker-compose ps
+$ docker-compose ps
 ```     
 
 * ターミナルからコンテナ内のMYSQLサーバに接続
