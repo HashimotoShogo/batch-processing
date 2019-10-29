@@ -21,6 +21,9 @@ public class BatchProcessingApplication implements CommandLineRunner {
     public void run(String... args) {
 
         personService.run("hogehoge");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d3457779d51cc0030aefe9722a434ee5d83c64e
     }
 }
