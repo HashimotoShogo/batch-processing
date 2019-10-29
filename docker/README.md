@@ -49,7 +49,6 @@ $  docker exec -it docker_mysql_1 bash
 
 ## dockerのステータス確認
 ```bash
-
 #Statusの項目が up の場合稼働中 Exit の場合停止中
 $ docker-compose ps
 ```     
@@ -73,7 +72,7 @@ $ sudo docker-compose down
 
     dockerグループにユーザーを追加することで sudo の回避可能
 
-   参考：https://qiita.com/tifa2chan/items/9dc28a56efcfb50c7fbe
+    参考：https://qiita.com/tifa2chan/items/9dc28a56efcfb50c7fbe
 
 
 ## 参考にしたページ
