@@ -20,10 +20,7 @@ public class BatchProcessingApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-<<<<<<< HEAD
-        personService.run("hogefuga");
-=======
         personService.run("hogehoge");
->>>>>>> some change
+
     }
 }
